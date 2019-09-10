@@ -1,0 +1,105 @@
+{% extends "layout.html" %}
+
+
+{% block content %}
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+<script type="text/javascript">
+// {{ans}}
+
+  $(function() {
+    function showInput(input) {
+      if (!input.files || !input.files[0]) {
+        return;
+      }
+      var reader = new FileReader();
+      reader.onload = function(e) {
+        $('#imgInput').attr('src', e.target.result);
+      }
+      reader.readAsDataURL(input.files[0]);
+    }
+
+    function sendFile() {
+      var formData = new FormData();
+      formData.append("file", $('#file')[0].files[0]);
+      $('.loading').toggleClass('d-none');
+      $('#guessOutput').toggleClass('d-none');
+      $('#hintOutput').toggleClass('d-none');
+      var form = $('#imgForm');
+      $.ajax({
+        url: window.location.href+'/analyse_im',
+        type: form.attr('method'),
+        data: formData,
+        processData: false,
+        contentType: false,
+        success: function(data) {
+          showOutput(data);
+          $('.loading').toggleClass('d-none');
+          $('#guessOutput').toggleClass('d-none');
+          $('#hintOutput').toggleClass('d-none');
+        },
+        error: function(xhr, err) {
+          console.error(err);
+          $('.loading').toggleClass('d-none');
+          $('#outputContainer').append(
+            '<p>Got error from serving API:</p><p>'+xhr.responseText+'</p>')
+        }
+      });
+    }
+    function showOutput(data) {
+      const guess = `${data.ans}!`
+      $('#guessOutput').text(guess);
+      $('#hintOutput').text(data.guess);
+      console.log(data.guess)
+      if (data.guess != 'c0'){
+        $('#dis').text('DISTRACTED!')
+      }
+      else{
+        $('#dis').text('SAFE')
+      }
+
+
+
+    }
+    $("#file").change(function() {
+      showInput($("#file")[0]);
+      sendFile();
+    });
+  });
+</script>
+
+
+
+
+
+
+<div class="container" style ="margin-top:50px;margin-left:420px" >
+  <div>
+    <form  id='imgForm' method='POST' enctype="multipart/form-data">
+        <div class='form-group '>
+          <label class='btn-file btn btn-outline-primary btn-lg'>
+            <input type="file" class='form-control-file' id="file" name="file"></input>
+          </label>
+        </div>
+    </form>
+  </div>
+
+  <div style="height:300px;width:375px">
+    <img  id='imgInput' class="img-fluid" src="{{input}}"  />
+  </div>
+
+  <!-- <div class="imageContainer"> -->
+    <div style="margin-left:50px" id='outputContainer'>
+      <h3 id="guessOutput"></h3>
+      <h4 id="hintOutput"></h4>
+      <div class='loading d-none'>
+        <i class="fas fa-cog fa-spin fa-5x"></i>
+      </div>
+      <h2 style="color:red" id="dis"></h2>
+    <!-- </div> -->
+  </div>
+</div>
+
+
+{% endblock content %}

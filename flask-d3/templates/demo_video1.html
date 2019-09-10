@@ -1,0 +1,107 @@
+{% extends "layout.html" %}
+
+
+{% block content %}
+<p>Process video</p>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+{{ans}}
+<!-- <video src="https://192.168.43.1:8080/video" autoplay>
+
+</video> -->
+
+<!-- <video width="320" height="240" controls>
+  <source src="https://192.168.43.1:8080/video">
+  <!-- <source src="movie.ogg" type="video/ogg"> -->
+  <!-- Your browser does not support the video tag. -->
+<!-- </video> -->
+
+<!-- <img style="height:50%; width:60%" src="https://192.168.43.1:8080/shot.jpg" alt=""> -->
+
+<style media="screen">
+  .Myclass {
+    height: 400px;
+    width: 400px
+  }
+</style>
+
+
+<button type="button" name="button">new</button>
+<div id="imagediv">
+  <h3 id="guessOutput"></h3>
+  <h4 id="hintOutput"></h4>
+  <div class='loading d-none'>
+    <i class="fas fa-cog fa-spin fa-5x"></i>
+  </div>
+</div>
+
+
+
+
+<script type="text/javascript">
+
+var c =0
+$("button").click(function(){
+  c = c+1
+  var img = $('<img />', {
+    class: 'Myclass',
+    id: 'Myid' + c,
+    src: 'https://192.168.43.1:8080/shot.jpg',
+    alt: 'MyAlt'
+  });
+  img.prependTo($('#imagediv'));
+  var txt2 = $("<p></p>").text(c);
+  txt2.prependTo($('#imagediv'))
+
+
+  // window.location.href = 'localhost:8000/analyse_vi'
+//   var formData = new FormData();
+//   formData.append("file", $(img));
+//   formData.append("filename", c);
+//
+//   $.ajax({
+//     url: window.location.href+'/analyse_vi',
+//     type: "POST",
+//     data: formData,
+//     datatype: 'image/jpg',
+//     processData: false,
+//     contentType: false,
+//     success: function(data) {
+//     console.log(data)
+//     console.log("type", typeof(data))
+//
+//       showOutput(data);
+//       $('.loading').toggleClass('d-none');
+//       $('#guessOutput').toggleClass('d-none');
+//       // $('#hintOutput').toggleClass('d-none');
+//     },
+//     error: function(xhr, err) {
+//       console.error(err);
+//       // $('.loading').toggleClass('d-none');
+//       // $('#outputContainer').append(
+//       //   '<p>Got error from serving API:</p><p>'+xhr.responseText+'</p>')
+//     }
+//   });
+//
+//   function showOutput(data) {
+//     const guess = `${data.ans}!`
+//     // $('p').text(guess)
+//     $('#guessOutput').text(guess);
+//     // $('#hintOutput').text(data.guess);
+//   }
+//
+//
+})
+
+</script>
+
+
+
+<!-- <script type="text/javascript">
+
+</script> -->
+
+
+
+{% endblock content %}

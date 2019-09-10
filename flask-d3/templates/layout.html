@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Distracted Driver Detection</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="keywords">
+  <meta content="" name="description">
+
+  <!-- Favicons -->
+    <!-- <link href="static/img/favicon.png" rel="icon"> -->
+    <!-- <link href="img/apple-touch-icon.png" rel="apple-touch-icon"> -->
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Poppins:300,400,500,700" rel="stylesheet">
+
+  <!-- Bootstrap CSS File -->
+  <link href="{{ url_for('static', filename='lib/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='lib/animate/animate.min.css')}}" rel="stylesheet">
+
+  <!-- Libraries CSS Files -->
+  <link href="{{ url_for('static', filename='lib/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='lib/animate/animate.min.css')}}" rel="stylesheet">
+
+
+  <!-- Main Stylesheet File -->
+  <!-- <link href="{{ url_for('static', filename='style.css')}}" rel="stylesheet"> -->
+
+</head>
+
+<body>
+
+{% block content %}
+{% endblock %}
+
+
+<!-- JavaScript Libraries -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+<script src="{{ url_for('static',filename='lib/jquery/jquery.min.js')}}"></script>
+<script src="{{ url_for('static',filename='lib/jquery/jquery-migrate.min.js')}}"></script>
+<script src="{{ url_for('static',filename='lib/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+<script src="{{ url_for('static',filename='lib/easing/easing.min.js')}}"></script>
+<script src="{{ url_for('static',filename='lib/wow/wow.min.js')}}"></script>
+<script src="{{ url_for('static',filename='lib/waypoints/waypoints.min.js')}}"></script>
+<script src="{{ url_for('static',filename='lib/counterup/counterup.min.js')}}"></script>
+<script src="{{ url_for('static',filename='lib/superfish/hoverIntent.js')}}"></script>
+<script src="{{ url_for('static',filename='lib/superfish/superfish.min.js')}}"></script>
+
+<!-- Contact Form JavaScript File -->
+<script src="{{url_for('static', filename='contactform.js')}}"></script>
+
+<!-- Template Main Javascript File -->
+<script src="{{url_for('static',filename='main.js')}}"></script>
+
+</body>
+</html>
