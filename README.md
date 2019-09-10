@@ -10,14 +10,11 @@
 ![Screenshot](Picture1.png)
 
 <li> Should distracted driving be detected, a buzzer will go off, alerting the driver (and passengers) of unsafe driving.
-</li>`
+</li>
 
-</ul>
 
-## Have a look.
 
-![Screenshot](Picture2.png)
-![Screenshot](Picture3.png)
+
 
 
 
