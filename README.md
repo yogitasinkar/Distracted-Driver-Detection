@@ -12,6 +12,7 @@
 <li> Should distracted driving be detected, a buzzer will go off, alerting the driver (and passengers) of unsafe driving.
 </li>
 
+![Screenshot](Picture1.png)
 
 
 
