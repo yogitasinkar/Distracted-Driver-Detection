@@ -13,13 +13,17 @@
 </li>
 
 <p></p>
+Project Setup
 <p align="center">
-<img src="Picture2.jpg" width="350" title="hover text">
+<img src="Picture2.jpg" width="350" title="PROJECT SETUP">
 </p>
 
-<p align="center">
-<img src="Picture3.jpg" width="350">
-</p>
+# HAVE A LOOK AT THE WORKING PROTOTYPE
+
+https://youtu.be/Cmua60_fZXY
+
+
+
 
 
 
